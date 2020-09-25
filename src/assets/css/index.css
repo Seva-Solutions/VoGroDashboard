@@ -2,15 +2,15 @@
 
 /* Body */
 body {
-  color: #222; font-size: 14px;
+  color: #EB5729; font-size: 14px;
   font-family: "Montserrat", "Helvetica Neue", Arial, sans-serif;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased; 
 }
 
 /* Links */
-a { color: #0094D6; }
-a:hover { color: #0081ba; }
+a { color:  #EB5729; }
+a:hover { color:  #EB5729; }
 
 /* Images */
 img { max-width: 100%; border-radius: 3px; }
@@ -19,7 +19,7 @@ img { max-width: 100%; border-radius: 3px; }
 /* Cards */
 .card {
   position: relative; margin-bottom: 20px; border-radius: 12px; border: 0 none; 
-  box-shadow: 0 6px 10px -4px rgba(0, 0, 0, 0.2); color: #222; 
+  box-shadow: 0 6px 10px -4px rgba(0, 0, 0, 0.2); color:#222; 
   -webkit-transition: transform 300ms cubic-bezier(0.34, 2, 0.6, 1), box-shadow 200ms ease;
   -moz-transition: transform 300ms cubic-bezier(0.34, 2, 0.6, 1), box-shadow 200ms ease;
   transition: transform 300ms cubic-bezier(0.34, 2, 0.6, 1), box-shadow 200ms ease; 

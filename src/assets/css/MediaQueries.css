@@ -15,14 +15,14 @@
   .navbar .navbar-toggler-bar {
     display: block; position: relative;
     width: 22px; height: 1px;
-    border-radius: 1px; background: #0094D6; 
+    border-radius: 1px; background:  #EB5729; 
   }
   .navbar .navbar-toggler-bar + .navbar-toggler-bar { margin-top: 7px; }
   .navbar .navbar-toggler-bar + .navbar-toggler-bar.navbar-dots { margin-top: 3px; }
   .navbar .navbar-toggler-bar.bar2 { width: 17px; transition: width .2s linear; }
   
   /* Hamburger transition */
-  .navbar.bg-white:not(.navbar-transparent) .navbar-toggler-bar { background-color: #0094D6; }
+  .navbar.bg-white:not(.navbar-transparent) .navbar-toggler-bar { background-color:  #EB5729; }
   .navbar .toggled .navbar-toggler-bar { width: 24px; }
   .navbar .toggled .navbar-toggler-bar + .navbar-toggler-bar { margin-top: 5px; }
   .bar1, .bar2, .bar3 { outline: 1px solid transparent; }

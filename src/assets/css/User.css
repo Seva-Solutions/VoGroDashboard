@@ -12,8 +12,8 @@
   transition: all 150ms linear; 
 }
   
-.btn-primary { background-color: #0094D6; color: #FFFFFF; }
-.btn-primary:hover { background-color: #0081ba; }
+.btn-primary { background-color:  #EB5729; color: #FFFFFF; }
+.btn-primary:hover { background-color:  #EB5729; }
 .btn-round { border-width: 1px; border-radius: 30px; padding-right: 23px; padding-left: 23px; }
 
 /* Form */

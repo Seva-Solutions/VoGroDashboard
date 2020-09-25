@@ -3,7 +3,8 @@
 .sidebar {
   position: fixed; top: 0; bottom: 0; left: 0; z-index: 1030;
   height: 100%; width: 250px; border-right: 1px solid #ddd; 
-  background: white; 
+  background: #F5F5F5; 
+  opacity: .8.2;
 }
 
 .sidebar:before, .sidebar:after {
@@ -19,7 +20,7 @@
 .sidebar .nav, .nav { margin-top: 20px; display: block; }
 
 .sidebar .nav li > a, .nav li > a {
-  margin: 10px 15px 0; padding: 10px 8px; display: block; position: relative;
+  margin: 10px 15px ; padding: 10px 8px; display: block; position: relative;
   text-decoration: none;  text-transform: uppercase; font-size: 0.9rem;
   color: #000; opacity: 0.9; cursor: pointer;  line-height: 30px;
 }
@@ -35,7 +36,7 @@
 }
 
 .sidebar .nav li.active > a,
-.sidebar .nav li.active > a i { color: #0094d6; opacity: 1; }
+.sidebar .nav li.active > a i { color: #EB5729; opacity: 1; }
 
 .sidebar .nav p{ margin-bottom: 0; margin-top: 0; }
 
@@ -44,4 +45,4 @@
   top: 0; left: 0; background-size: cover; background-position: center center; 
 }
 
-.sidebar .logo, .logo { position: relative; padding: 0.7px 0.7rem; z-index: 4; }
+.sidebar .logo, .logo { position: relative; padding: 50px .1rem; z-index: 4; }
