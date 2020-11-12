@@ -65,7 +65,7 @@ export default function RecipeReviewCard() {
     <Card className={classes.root}>
       <CardHeader
         avatar={
-          <Avatar aria-label="recipe" className={classes.avatar} src='./vogro.png'>
+          <Avatar aria-label="recipe" className={classes.avatar} src='./logo.png'>
             
           </Avatar>
         }

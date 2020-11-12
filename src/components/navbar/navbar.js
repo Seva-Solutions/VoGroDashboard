@@ -19,7 +19,7 @@ import InboxIcon from '@material-ui/icons/MoveToInbox';
 import MailIcon from '@material-ui/icons/Mail';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import styles from './navbar.module.css'
-import logo from './vogro.png'
+import logo from './logo.png'
 import AccountInfo from './accountInfo'
 
 const drawerWidth = 260;
@@ -120,7 +120,7 @@ export default function PersistentDrawerLeft() {
     <div className={classes.root}>
       <CssBaseline />
       <AppBar
-      style={{ background: 'white',height :"80px" }}
+      style={{ background: 'white',height :"80px", paddingTop: "8px"}}
         position="absolute"
         className={clsx(classes.appBar, {
           [classes.appBarShift]: open,
@@ -138,11 +138,12 @@ export default function PersistentDrawerLeft() {
           >
             <MenuIcon />
           </IconButton>
-          <img src={logo}  style={{ height: 53, width: 56 }} alt="Logo" />
-          <Typography variant="h6" noWrap style={{ color: '#EB5729', fontSize:'32px', fontWeight:'bold',}}>
+          {/* <img src={logo}  style={{ height: 53, width: 56 }} alt="Logo" /> */}
+          <img src={logo} alt="VoGro Logo" height="60" className={classes.logo}/>
+          {/* <Typography variant="h6" noWrap style={{ color: '#EB5729', fontSize:'32px', fontWeight:'bold',}}>
             VoGro    
             <NotificationsIcon className={classes.notification} />
-          </Typography>
+          </Typography> */}
         
         </Toolbar>
         <AccountInfo className = {classes.pos}/>
