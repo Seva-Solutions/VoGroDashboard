@@ -21,6 +21,15 @@ import NotificationsIcon from '@material-ui/icons/Notifications';
 import styles from './navbar.module.css'
 import logo from './logo.png'
 import AccountInfo from './accountInfo'
+import Tasks from '../Tasks/tasks'
+import Volunteers from '../Volunteers/volunteers'
+import Inbox from '../Inbox/inbox'
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
 
 const drawerWidth = 260;
 
@@ -118,6 +127,7 @@ export default function PersistentDrawerLeft() {
 
   return (
     <div className={classes.root}>
+ 
       <CssBaseline />
       <AppBar
       style={{ background: 'white',height :"80px", paddingTop: "8px"}}
@@ -163,24 +173,44 @@ export default function PersistentDrawerLeft() {
           </IconButton>
         </div>
         <Divider />
-        <List>
+   
+     
+
+          <Router >
+          <ul>
+                    <li><Link to="/task">Tasks <MailIcon /></Link></li>
+                    <li><Link to="/volunteers">volunteers</Link></li>
+                    <li><Link to="/inbox">inbox</Link></li>
+          </ul>
+          
+            {/* <Route>
+              <Link to="/volunteers" button> Volunteers <MailIcon /></Link>
+            </Route>
+            <Route>
+            <Link to="/Inbox" button> Inbox <MailIcon /></Link>
+            </Route> */}
+
+    
+    </Router>
+            {/* <Switch>
+            <Route component={Tasks} path='/task' />
+        
+            </Switch> */}
+    
+   
+         
+          
+        {/* <ListItem button key={text}>
+        <ListItem button key={text}>
           {['Tasks', 'Volunteers', 'Inbox'].map((text, index) => (
             <ListItem button key={text}>
               <ListItemIcon></ListItemIcon>
               <ListItemText primary={text} />
               {index % 1 === 0 ? <MailIcon /> : <InboxIcon />  }
             </ListItem>
-          ))}
-        </List>
+          ))} */}
+     
         <Divider />
-        {/* <List>
-          {['All mail', 'Trash', 'Spam'].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItem>
-          ))}
-        </List> */}
       </Drawer>
       
       <main
@@ -189,8 +219,22 @@ export default function PersistentDrawerLeft() {
         })}
       >
         <div className={classes.drawerHeader} />
-    
+             
+    <Switch>
+        <Route path='/task'>
+            <Tasks />
+        </Route>
+        <Route path='/volunteers'>
+            <Volunteers />
+        </Route>
+        <Route path='/inbox'>
+            <Inbox/>
+        </Route>
+    </Switch>
       </main>
+  
     </div>
+    
+    
   );
 }
