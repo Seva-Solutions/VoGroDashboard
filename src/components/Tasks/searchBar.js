@@ -1,5 +1,5 @@
 import React,{useState, useEffect} from 'react';
-
+import styles from './task.module.css';
 export default function SearchBar(props){
 
 
@@ -12,7 +12,8 @@ export default function SearchBar(props){
 
     return(
         <input
-        style = {{width:'80%',aspectRatio:2,borderRadius:10,borderColor: 'grey',paddingLeft:20,fontSize:20,borderWidth:1}}
+        className = {styles.searchBar}
+        inputMode = 'search'
         type = 'text'
         placeholder = 'Search For Anything...'
         value = {props.value}

@@ -1,54 +1,56 @@
 import React,{useState} from 'react';
 import SearchBar from './searchBar';
-import Styles from './task.module.css';
+import styles from './task.module.css';
 import CompletedTasks from './completedTasks';
+import ActiveTasks from './activeTasks';
 
 function Tasks() {
 
-  const [activeTasks] = useState(0);
-  const [completedTasks] = useState(0);
-  const [searchText, setSearchText] = useState('');
-  const [viewCompletedTasks,toggleTaskView] = useState(true);
+  const [activeTasks] = useState([{
+    taskID: 'Task1',
+      label : 'Complete Dashboard',
+      assignedTo: [{'name': 'Alick Lazare','displayImg' : null},{'name' : 'John Johnson', 'displayImg': null}],
+      time: '8:00 - 10:00',
+      date: 'December 26 2020',
+      location: 'Sugar Hill',
+      status: 'Completed',
+  }]);
+  const [completedTasks] = useState([{
+      taskID: 'Task1',
+      label : 'Complete Dashboard',
+      assignedTo: [{'name': 'Alick Lazare','displayImg' : null},{'name' : 'John Johnson', 'displayImg': null}],
+      time: '8:00 - 10:00',
+      date: 'December 26 2020',
+      location: 'Sugar Hill',
+      status: 'Completed',
+     
+  }]);
+  const [viewCompletedTasks,toggleTaskView] = useState(true); //Tracks what view is in focus
+ 
+
 
   const {innerWidth,innerHeight} = window;
   return (
-    <div style = {{paddingLeft: 100, width:0.9*innerWidth,display:'flex',flexDirection:'column'}}>
-    <h3 style={{fontSize: '30px',paddingLeft:40,marginBottom:100}}>Task Management</h3>
-    <div style = {{display:'flex',flexDirection:'row',paddingLeft:'40px',justifyContent:'space-between',width:'30%', marginBottom:50}}>
-      <button style = { viewCompletedTasks ? inactiveHeaderButtonStyle : headerButtonStyle} onClick = {()=> toggleTaskView(false)}>
-        <h2> Active Tasks ({activeTasks})</h2>
-      </button>
-      <button style = { viewCompletedTasks ? headerButtonStyle : inactiveHeaderButtonStyle} onClick = {()=> toggleTaskView(true)}>
-       <h2> Completed Tasks ({completedTasks})</h2>
-      </button>
-      
-    </div>
-    <div style = {mainDivStyle}>
-      <SearchBar
-      value = {searchText}
-      onChange = {text=> setSearchText(text)} />
-      <button 
-      style = {{borderRadius: 15, width:'10%',height: 0.3*(0.1*innerWidth), aspectRatio:2, backgroundColor:'#EB5729',cursor:'pointer'}}>
-        <text style = {{color:'white'}}> Remove</text>
+    <div style = {{width:innerWidth,height:innerHeight,backgroundColor:'#FFFFFF'}}>
+    <div className = {styles.mainDiv}>
+      <h3 className = {styles.header}>Task Management</h3>
+      <div style = {{display:'flex',flexDirection:'row',paddingLeft:'40px',justifyContent:'space-between',width:'30%', marginBottom:50}}>
+        <button className = {styles.selectorButton} onClick = {()=> toggleTaskView(false)}>
+          <h2 className = {styles.taskSelector}> Active Tasks ({activeTasks.length})</h2>
+          <div className = {viewCompletedTasks ? styles.selectorInactive : styles.selectorActive}></div>
         </button>
+        <button className = { styles.selectorButton} onClick = {()=> toggleTaskView(true)}>
+          <h2 className = {styles.taskSelector}> Completed Tasks ({completedTasks.length})</h2>
+          <div className = {viewCompletedTasks ? styles.selectorActive : styles.selectorInactive}></div>
+        </button>
+      </div>
+      {
+        viewCompletedTasks ? <CompletedTasks tasks = {completedTasks}/> : <ActiveTasks tasks = {activeTasks}/>
+      }
     </div>
-
-    <div style = {taskDiv}>
-      <h4>Task</h4>
-      <h4>Assigned To</h4>
-      <h4>Duration</h4>
-      <h4>Location</h4>
-      <h4>Status</h4>
-    </div>
-    {
-      viewCompletedTasks ? <CompletedTasks /> : <text style = {{alignSelf:'center',marginTop:50}}> To do</text>
-    }
-   
-    
-  
     </div>
   );
-}
+  }
 
 export default Tasks;
 
@@ -64,7 +66,7 @@ const headerButtonStyle = {
   backgroundColor:'transparent',
   borderWidth: 0,
   borderBottomWidth:6,
-  borderColor : '#1661AA',
+  borderColor : '#EB5729',
   cursor:'pointer'}
 
 const mainDivStyle = {

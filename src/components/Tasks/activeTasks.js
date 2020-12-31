@@ -2,23 +2,26 @@ import React,{useState, useEffect} from 'react'
 import SearchBar from './searchBar'
 import TaskBlock from './taskBlock';
 import styles from './task.module.css'
-import {RemoveCircleOutline} from '@material-ui/icons'
-export default function CompletedTasksList(props){
+import {AddCircleOutline,Menu,CalendarToday,Room} from '@material-ui/icons'
+
+export default function ActiveTasksList(props){
     const [tasks,setTasks] = useState([]);
     const [searchText,setSearchText] = useState('')
     const [selectedTasks,setSelectedTasks] = useState([]); //Contaisn ID of all selected tasks
     const [searchTasks,setSearchTasks] = useState([]);
+    const [taskView,toggleTaskView] = useState(0)
 
-    const tasksProps = props.tasks;
+    const taskProps = props.tasks;
 
 
-   /**
-    * On first render hook sets task state to tasks passed from props.
-    */
-   useEffect(()=>{
-    if(Array.isArray(tasksProps) )
-      setTasks(tasksProps)
-   },[]);
+    
+    /**
+     * On first render hook sets task state to task prop
+     */
+    useEffect(()=>{
+      if(Array.isArray(taskProps) )
+        setTasks(taskProps);
+    },[]);
 
     /*Hook searches for task among main task container
       Criteria: task label
@@ -56,33 +59,25 @@ export default function CompletedTasksList(props){
         setSelectedTasks(tempArray);
     }
 
-    function removeTasks(){
-      if(!Array.isArray(selectedTasks) || !Array.isArray(tasks))
-        return
-        const tempArray = tasks.filter(task=>{
-          const isSelected = selectedTasks.findIndex(selTask=> selTask === task.taskID);
-          if(isSelected >= 0)
-            return false;
-          else
-            return true;
-        })
-        console.log(tempArray)
-        setTasks(tempArray);
-       
-    }
-
     return(
         <div>
         <div style = {mainDivStyle}>
+        <button 
+        className = {styles.buttonStyle}
+        style = {{marginRight:30}}>
+          <AddCircleOutline style = {{color:'white', fontsize: 10,paddingRight: 2}}/>
+          <text style = {{color:'white'}}> Create Task</text>
+          </button>
         <SearchBar
         value = {searchText}
         onChange = {text=> setSearchText(text)} />
-        <button 
-        className = {(selectedTasks.length === 0 || !Array.isArray(selectedTasks))  ? styles.inactiveButton : styles.buttonStyle}
-        onClick = {removeTasks}>
-          <RemoveCircleOutline style = {{color:'white', fontsize: 10,paddingRight: 5}}/>
-          <text style = {{color:'white'}}> Remove</text>
-          </button>
+        <div className = {styles.activeTaskButtonGroup}>
+            <Menu className = {`${(taskView ===0) ? styles.primaryColor : styles.primaryColorInactive} ${styles.iconButtons}`} fontSize = 'large' />
+            <CalendarToday className = {`${(taskView ===1) ? styles.primaryColor : styles.primaryColorInactive}`} fontSize = 'large'/>
+            <Room className = {`${(taskView ===2) ? styles.primaryColor : styles.primaryColorInactive}`} fontSize = 'large'/>
+
+        </div>
+       
       </div>
       
       <div className = {styles.taskDivStyle}>
@@ -105,14 +100,14 @@ export default function CompletedTasksList(props){
                         ?
     <ul style = {{padding:0}}>
     {tasks.map(task=>
-     <TaskBlock task = {task} onSelected = {(taskID)=>addSelectedTask(taskID)} onDeselected = {(taskID)=> removeSelectedTask(taskID)} key = {task.taskID}/>
+     <TaskBlock task = {task} onSelected = {(taskID)=>addSelectedTask(taskID)} onDeselected = {(taskID)=> removeSelectedTask(taskID)}/>
                    
     )}
     </ul>
                         :
          <ul style = {{padding:0}}>
            {
-             searchTasks.length === 0 //If no elements are present in search array.
+             searchTasks.length === 0
                     ?
                     <text>No tasks match: "{searchText}"</text>
                     :

@@ -1,3 +1,210 @@
-.task{
-    background-color: blue;
+.mainDiv{
+   background:  #FFFFFF;
+
+   display: flex;
+   flex: auto;
+   flex-direction: column;
+   width: 90%;
+   padding-left: 100px;
+   
+}
+
+.taskDivStyle{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 0.25fr;
+    justify-items: center;
+    align-items: center;
+    margin-bottom:10;
+    margin-top:10;
+    width: 70%;
+}
+
+.taskBodyStyle{
+    background: #FFFFFF;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.05);
+    height: 120px;
+}
+
+.activeTaskButtonGroup{
+    background: rgba(246, 246, 246, 1);
+    display: flex;
+
+    height:48px;
+
+    flex-direction: row;
+    margin-left: 20px;
+    padding: 5px;
+    border-radius: 10px;
+    border-width: 1px;
+}
+
+.header{
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 500;
+font-size: 24px;
+line-height: 29px;
+display: flex;
+align-items: center;
+
+color:'red'
+}
+
+.primaryColor{
+    color: #EB5729;
+}
+
+.primaryColorInactive{
+    color: rgba(235, 87, 41, 0.5);
+}
+
+.selectorButton{
+    background-color: transparent;
+    border:none;
+    cursor: pointer;
+}
+.selectorActive{
+ background-color: rgba(235, 87, 41, 1);
+ width: auto;
+ height: 6px;
+ border-radius: 10px;
+ 
+}
+
+.selectorInactive{
+    background-color: transparent;
+    border:none;
+    cursor: pointer;
+}
+
+
+
+.taskSelector{
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 600;
+font-size: 20px;
+line-height: 24px;
+text-align: center;
+}
+
+.searchBar{
+    background: #FFFFFF;
+/* Greyed Out */
+border: 1px solid #B5B5B5;
+box-sizing: border-box;
+border-radius: 10px;
+width: 80%;
+height: 48px;
+border-radius: 10;
+padding-left: 40px;
+
+font-family: Inter;
+font-style: normal;
+font-weight: normal;
+font-size: 16px;
+line-height: 19px;
+}
+
+.headerText{
+    flex:1;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    
+    color: #676767;
+}
+.buttonStyle{
+    display: flex;
+    background: rgba(235, 87, 41, 1);
+    border-radius: 10px;
+    outline: none;
+    box-shadow: none;
+    height: 48px;
+    border-width: 0;
+    align-items: center;
+    justify-content: flex-start;
+
+    padding: 20px;
+    
+    cursor: pointer;
+}
+
+.inactiveButton{
+    display: flex;
+    background: rgba(235, 87, 41, 0.5);
+    border-radius: 10px;
+    outline: none;
+    box-shadow: none;
+
+    height: 48px;
+    border-width: 0;
+    align-items: center;
+    justify-content: flex-start;
+
+    padding: 20px;
+    
+}
+
+.taskBodyText{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    text-align: center;
+}
+
+.checkBoxStyle{
+    width: 24.24px;
+    height: 24px;
+
+    border: 1.5px solid #EB5729;
+    box-sizing: border-box;
+    border-radius: 3.90625px;
+
+    margin-right: 20px;
+
+    cursor: pointer;
+}
+
+.avatarStyle{
+    height: 34;
+    width: 34;
+  
+}
+
+.avatarStylewithMargin{
+    height: 34px;
+    width: 34px;
+    margin-right:-20px;
+    margin-bottom: -17px;
+    
+}
+
+.mapPin{
+    height: 16px;
+    width: 16px;
+    margin-right: 5px;
+}
+
+.sendIcon{
+    font-size: 30px;
+
+    align-self: flex-end;
+    transform: rotate(-45deg);
+    margin-right: 15px;
+
+    cursor: pointer;
+}
+
+.iconButtons{
+    font-size:60px;
+    cursor: pointer;
 }
