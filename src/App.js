@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import MenuBar from './components/sidebar/MenuBar'
 import { BrowserRouter,Route } from 'react-router-dom'
 import SideBar from './components/navbar/navbar'
-import Tasks from './components/Tasks/tasks';
+// import Tasks from './components/Tasks/tasks';
 
 class App extends Component {
   render() {
@@ -11,7 +11,7 @@ class App extends Component {
         {/* <MenuBar/> */}
         <SideBar />
         <Route path = '/tasks'>
-          <Tasks/>
+          {/* <Tasks/> */}
         </Route>
       </BrowserRouter>
     )

@@ -22,14 +22,14 @@ import styles from './navbar.module.css'
 import logo from './logo.png'
 import AccountInfo from './accountInfo'
 import { Link, withRouter, BrowserRouter } from 'react-router-dom';
+import Tasks from '../Tasks/tasks';
 const drawerWidth = 260;
 
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    display: 'absolute',
+    display: 'flex',
     maxHeight:600
-    
   },
   appBar: {
     transition: theme.transitions.create(['margin', 'width'], {
@@ -63,10 +63,11 @@ const useStyles = makeStyles((theme) => ({
   drawerHeader: {
     display: 'flex',
     alignItems: 'center',
+    justifyContent: 'flex-end',
     padding: theme.spacing(0, 1),
+    marginLeft: '150px',
     // necessary for content to be below app bar
     ...theme.mixins.toolbar,
-    justifyContent: 'flex-end',
     
   },
   content: {
@@ -89,7 +90,7 @@ const useStyles = makeStyles((theme) => ({
     width: 500,
     height: 80,
     display: 'flex',
- 
+    zIndex:9999,
   },
   notification: {
     position:'fixed',
@@ -100,7 +101,6 @@ const useStyles = makeStyles((theme) => ({
     fontSize: 35,
     color: 'black'
   }
-  
 }));
 
 
@@ -122,7 +122,6 @@ export default function PersistentDrawerLeft() {
       <CssBaseline />
       <AppBar
       style={{ background: 'white',height :"80px", paddingTop: "8px"}}
-        position="absolute"
         className={clsx(classes.appBar, {
           [classes.appBarShift]: open,
         })}
@@ -182,14 +181,6 @@ export default function PersistentDrawerLeft() {
         })}
         </List>
         <Divider />
-        {/* <List>
-          {['All mail', 'Trash', 'Spam'].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItem>
-          ))}
-        </List> */}
       </Drawer>
       
       <main
@@ -198,7 +189,11 @@ export default function PersistentDrawerLeft() {
         })}
       >
         <div className={classes.drawerHeader} />
-    
+      </main>
+      {/* these two classed pushed content to the right when the drawer is opened */}
+      <main className={classes.content}>
+        <div className={classes.toolbar} />
+          <Tasks />
       </main>
     </div>
   );
